@@ -1,0 +1,50 @@
+<h1>this is new in listings</h1>
+
+<%= form_with scope: :listing do |f| %>
+	<%= f.label :title%><br/>
+	<%= f.text_field :title%><br/>
+	<br/>
+	<%= f.label :address%><br/>
+	<%= f.text_field :address%><br/>
+	<br/>
+	<%= f.label :guests%><br/>
+	<%= f.text_field :guest%><br/>
+	<br/>
+	<%= f.label :bedroom%><br/>
+	<%= f.text_field :bedroom%><br/>
+	<br/>
+	<%= f.label :baths%><br/>
+	<%= f.text_field :baths%><br/>
+	<br/>
+	<%= f.label :minimum_stays%><br/>
+	<%= f.text_field :min_stays,placeholder:"Days"%><br/>
+	<br/>
+	<%= f.label :price%><br/>
+	<%= f.text_field :price, placeholder:"MYR"%><br/>
+	<br/>
+
+	Gym
+	<%= f.check_box :amenities, {:multiple => true}, "Gym", nil %>
+	Pets
+	<%= f.check_box :amenities, {:multiple => true}, "Pets", nil %>
+	Wifi
+	<%= f.check_box :amenities, {:multiple => true}, "WiFi", nil %>
+	Pool
+	<%= f.check_box :amenities, {:multiple => true}, "Pool", nil %>
+	Kitchen
+	<%= f.check_box :amenities, {:multiple => true}, "Kitchen", nil %>
+	Doorman
+	<%= f.check_box :amenities, {:multiple => true}, "Doorman", nil %>
+	Game Consoles
+	<%= f.check_box :amenities, {:multiple => true}, "Game Consoles", nil %>
+	Heating
+	<%= f.check_box :amenities, {:multiple => true}, "Heating", nil %>
+	Parking On Premises
+	<%= f.check_box :amenities, {:multiple => true}, "Parking on Premesis", nil %>
+	Toiletries
+	<%= f.check_box :amenities, {:multiple => true}, "Toiletires", nil %><br/>
+	<%=f.submit%>
+<% end %>
+
+
+

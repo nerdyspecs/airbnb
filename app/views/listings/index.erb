@@ -1,0 +1,11 @@
+<h1>This is index in listings</h1>
+<%@listings.each do |listing|%>
+	<%= listing.title%> <br/>
+	<%= listing.address%><br/>
+	<%= listing.amenities%><br/>
+	by <%= listing.user.email%><br/>
+	<br/>
+<%end%>
+<%= paginate @listings %>
+
+
