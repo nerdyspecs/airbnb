@@ -8,8 +8,6 @@ class UsersController < Clearance::UsersController
 	def show
 
 		@user = User.find(params[:id])
-		# @picture = MiniMagick::Image.new(@user.image)
-		# @picture.resize("100x100")
 		if current_user.id == params[:id].to_i
 			@owner = true
 		end
