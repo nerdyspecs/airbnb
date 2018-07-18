@@ -1,6 +1,9 @@
 <h1>this is new in listings</h1>
+<%=@message%>
 
-<%= form_with scope: :listing do |f| %>
+
+
+<%= form_with scope: :listing , url: listings_path do |f| %>
 	<%= f.label :title%><br/>
 	<%= f.text_field :title%><br/>
 	<br/>
@@ -43,6 +46,12 @@
 	<%= f.check_box :amenities, {:multiple => true}, "Parking on Premesis", nil %>
 	Toiletries
 	<%= f.check_box :amenities, {:multiple => true}, "Toiletires", nil %><br/>
+
+
+<!-- images uploader -->
+	<%= f.label :images%><br/>
+	<%= f.file_field :images, multiple: true %>
+
 	<%=f.submit%>
 <% end %>
 

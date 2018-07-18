@@ -1,0 +1,25 @@
+<h1><%= @listing.title%> at <%=@listing.city%></h1>
+by :<%= link_to @listing.user.name, user_path(@listing.user.id)%>
+<div style="display:flex">
+	<div style="width: 50%;border: 1px black solid;padding:25px ">
+		<h2><%=@listing.description%></h2>
+	</div>
+	
+	<div style="width: 50%;border: 1px blue solid; padding:25px"> 
+		<li>Address	:<%=@listing.address%></li>
+		<li>Bedrooms :<%=@listing.bedroom%></li>
+		<li>Baths :<%=@listing.baths%></li>
+		<li>Minimum Stays:<%=@listing.min_stays%></li>
+		<li>Amenities :<%=@listing.amenities%></li>
+		<li>Price :<%=@listing.price%> USD/night</li>
+	</div>
+
+	<%if @listing.images?%>
+		<%= image_tag @listing.images.url %>
+	<%end%>
+	
+</div>
+	<div>
+		<%= link_to "Make a reservation", new_listing_reservation_path(params[:id])%> <br/>
+		<%= link_to "Back to listings!", :back %>
+	</div>

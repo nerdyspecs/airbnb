@@ -1,11 +1,16 @@
-<h1>This is index in listings</h1>
+<h1>Choose a place to stay!</h1>
+
 <%@listings.each do |listing|%>
-	<%= listing.title%> <br/>
-	<%= listing.address%><br/>
-	<%= listing.amenities%><br/>
-	by <%= listing.user.email%><br/>
+	<div style="border: 1px black solid; width: 50%;">
+			<%= link_to listing.title, listing_path(listing.id)%><br/>
+			<%= listing.address%><br/>
+			<%= listing.amenities%><br/>
+			<%= listing.price%> per night<br/>
+			by 	<%= link_to listing.user.name, user_path(listing.user.id)%><br/>
+		<br/>
+	</div>
 	<br/>
 <%end%>
-<%= paginate @listings %>
 
+<%= paginate @listings %>
 

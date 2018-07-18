@@ -7,7 +7,9 @@ class CreateListings < ActiveRecord::Migration[5.2]
       t.string :bedroom
       t.string :baths 
       t.string :min_stays
-      t.float :price
+      t.string :city
+      t.string :description
+      t.integer :price
       t.string :amenities, array: true, default: []
 
 

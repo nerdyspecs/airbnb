@@ -1,0 +1,21 @@
+<%if @owner == true%>
+	<h1> Welcome back to your profile, <%=@user.name%>!</h1>
+	<%if @user.image?%>
+		<%= image_tag @user.image.url,:style => "border-radius:100px 30px; "%> <br/>
+	<%end%>
+	<%= link_to "Edit your profile", edit_user_path(@user)%>
+<%else%>
+	<h1>This is the profile of <%=@user.name%>, with the id of <%=@user.id%></h1>
+	Listings of this <%=@user.name%> : <br/>
+<%end%>
+<br/>
+<%=link_to "Your reservations!", user_reservations_path(current_user.id)%>
+
+<h1>Your listings!</h1>
+<%@listings.each do |listing|%>
+	<%= link_to listing.title, listing_path(listing.id)%><br/>
+<%end%>
+
+<br/>
+
+<%= link_to "Back to listings!", listings_path %>

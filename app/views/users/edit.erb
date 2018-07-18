@@ -1,0 +1,20 @@
+<h1>this is edit in user</h1>
+
+<%if @user.image?%>
+	<%= image_tag @user.image.url,:style => "border-radius:100px 30px; "%> <br/>
+<%end%>
+<%= form_with scope: :user, url: user_path(@user), method:"patch" do |f| %>
+	<%= f.label :email%><br/>
+	<%= f.text_field :email%><br/>
+
+	<%= f.label :password%><br/>
+	<%= f.text_field :password, placeholder: "password"%><br/>
+
+	<%= f.label :name%><br/>
+	<%= f.text_field :name%><br/>
+
+	<%= f.label :image%><br/>
+	<%= f.file_field :image, multiple: false %>
+	<br/>
+<%=f.submit%>
+<%end%>

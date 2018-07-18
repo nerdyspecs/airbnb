@@ -12,5 +12,27 @@
 //
 //= require rails-ujs
 //= require activestorage
+
 //= require turbolinks
 //= require_tree .
+document.addEventListener("DOMContentLoaded", function(event){
+    // when button is released, call backend server
+    $('#search_bar').on('keyup', function(e){
+        $.ajax({
+            url: '/search',
+            method: "GET",
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function(data){
+                console.log(data)
+                var title = document.getElementById("drop_down")
+                title.innerHTML = ""
+                data.forEach(function(listing){
+                    var option = document.createElement("option")
+                    option.value = `${listing.title}, ${listing.city}`
+                    title.append(option);
+                })
+            }
+        });
+    })
+})

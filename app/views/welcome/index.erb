@@ -1,0 +1,7 @@
+<h1>Welcome to AirBnB! Your one stop booking solution!</h1>
+
+
+
+<h3><%=link_to "View Listings!", :controller => :listings, :action => :index%></h3>
+<h3><%=link_to "Sign up an account with us!", :controller => :users, :action => :new%></h3>
+<%= link_to "Make Payment", braintree_new_path(current_user) %>

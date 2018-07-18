@@ -1,0 +1,6 @@
+<h1>These are your reservations</h1>
+<% @reservations.each do |reservation|%>
+	<div class="card">
+		<li><%= link_to "#{reservation.listing.title}  #{reservation.payment}", listing_reservation_path(reservation.listing_id,reservation.id)%></li>
+	</div>
+<%end%>

@@ -1,0 +1,11 @@
+<h1>This is search in listing</h1>
+<%@listing.each do |list|%>
+<div style="border: 1px black solid; width: 50%;">
+		<%= link_to list.title, listing_path(list.id)%><br/>
+		<%= list.address%><br/>
+		<%= list.amenities%><br/>
+		<%= list.price%> per night<br/>
+		by 	<%= link_to list.user.name, user_path(list.user.id)%><br/>
+	<br/>
+</div>
+<%end%>

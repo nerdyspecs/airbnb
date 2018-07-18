@@ -1,0 +1,15 @@
+<!-- reservation new -->
+<h1>Make a reservation for <%= @listing.title%></h1>
+<h2>by <%= @listing.user.email%></h2>
+
+<%= form_with scope: :reservation, url:listing_reservations_path(@listing)  do |f| %>
+
+    <%= f.label :check_in %>
+    <%= f.date_field :check_in, type:'date' %>
+    <br/>
+    <%= f.label :check_out %>
+    <%= f.date_field :check_out, type:'date' %>
+    <br/>
+    <%=f.submit%>
+<%end%>
+

@@ -31,6 +31,12 @@ gem 'clearance'
 # gem 'mini_magick', '~> 4.8'
 gem 'faker'
 gem 'kaminari'
+gem 'carrierwave', '~> 1.0'
+gem "mini_magick"
+gem 'braintree'
+gem "figaro"
+gem 'sidekiq'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
     <title>Airbnb</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,12 +16,31 @@
 
   <body>
   <% if signed_in? %>
+  <div> 
     <%= current_user.email %>
     <%= button_to "Sign out", sign_out_path, method: :delete %>
+    <%= link_to "Home", homepage_path%><br/>
+    <%= link_to image_tag(current_user.image.url,:style => "border-radius:25%;width:5%;height:5%"), user_path(current_user)%> 
+  </div>
+
+
   <% else %>
     <%= link_to "Sign in", sign_in_path %>
     <%= link_to "Sign Up!", sign_up_path%>
+    <%= link_to "Home", root_path%>
+
   <% end %>
+
+  <!-- search bar -->
+  <%= form_with url: search_path, method:"get", local:true do |f| %>
+    <%f.label :search%>
+    <%=f.text_field :search, placeholder:"Anywhere. try \"any city\"", id:"search_bar",list:"drop_down"%>
+    <datalist id="drop_down">
+    </datalist>
+    <%=f.submit "Search!"%>
+  <%end%>
+
+
   <hr/>
   <!-- ============================================ -->
     <%= yield %>

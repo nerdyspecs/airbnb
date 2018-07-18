@@ -1,0 +1,8 @@
+<h1>This is show in reservation</h1>
+this is reservation for user <%=@reservation.user.name%>, to <%=@reservation.listing.title%>
+<br/>
+<% if @reservation.payment == "notpaid"%>
+	<%=link_to "Pay your debt here !", new_braintree_path, data: { turbolinks: false}%>
+<%else%>
+	Your payment has been made! Have a great day!
+<%end%>
